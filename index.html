@@ -37,7 +37,7 @@
   </head>
   <body>
 
-    <div data-role="page" data-control-title="Home" id="page1">
+    <div data-role="page" data-control-title="Home" id="page1" >
       <div role="main" class="ui-content">
           <ul data-role="listview" data-inset="true" data-divider-theme="a">
             <li><a href="#clubes">Clubes</a></li>
@@ -54,10 +54,23 @@
           Falta conteúdo
         </div>
 
-        <div data-role="header">
-          <a data-iconpos="notext" data-role="button" data-icon="home" href="#page1">Home</a>
-          <h1 align="left">Clubes</h1>
-          <a data-iconpos="notext" data-role="button" data-icon="bars" href="#panel"></a>
+        <div data-role="header" class="h_75">
+          <br/>
+          <div class="ui-grid-a">
+              <div class="ui-block-a h_75">
+                <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
+                  <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <h1>Clubes </h1>
+                </div>
+              </div>
+              <div class="ui-block-b">
+                <div class="ui-bar ui-bar-a right" style="height:40px"> 
+                  <i class="fa fa-refresh fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp; 
+                  <i class="fa fa-plus fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp; 
+                  <i class="fa fa-ellipsis-v fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                </div>
+              </div>
+          </div>
         </div>
 
         <div role="main" class="ui-content">
@@ -90,10 +103,18 @@
     </div>
 
     <div data-role="page" data-control-title="LinhaDoTempo" id="LinhaDoTempo">
-      <div data-role="header">
-        <a data-iconpos="notext" data-role="button" data-icon="home" href="#page1">Home</a>
-        <h1 align="left">Linha do tempo</h1>
-      </div>
+      <div data-role="header" class="h_75">
+          <br/>
+          <div class="ui-grid-a">
+              <div class="ui-block-a h_75">
+                <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
+                  <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <h1>Linha do tempo</h1>
+                </div>
+              </div>
+          </div>
+          <br/>
+        </div>
       <div role="main" class="ui-content">
           <div class="ui-block-a w_100">
             <div class="ui-bar ui-bar-a" > 
@@ -136,10 +157,16 @@
 
     <div data-role="page" data-control-title="map-page" id="map-page">
 
-      <div data-role="header">
-          <a data-iconpos="notext" data-role="button" data-icon="home" href="#page1">Home</a>
-          <h1 align="left">Novo estabelecimento</h1>
+      <div data-role="header" >
+        <br/>
+        <div class="ui-grid-a h_75">
+          <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
+            <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+            <h1>Novo Estabelecimento</h1>
+          </div>
+          <br/>
         </div>
+      </div>
 
       <div role="main" class="ui-content">
           <div role="main" class="ui-content" id="map-canvas">
@@ -148,22 +175,43 @@
               <input type="button" value="Cadastrar"/>
           </div>
       </div>
+
     </div>
 
      <div data-role="page" data-control-title="map-page" id="novoClube">
-      <div data-role="header">
-          <a data-iconpos="notext" data-role="button" data-icon="home" href="#page1">Home</a>
-          <h1 align="left">Novo Clube</h1>
+      <div data-role="header" class="h_75">
+          <br/>
+          <div class="ui-grid-a">
+              <div class="ui-block-a h_75">
+                <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
+                  <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <h1>Novo Clube</h1>
+                </div>
+              </div>
+          </div>
+          <br/>
         </div>
 
       <div role="main" class="ui-content">
-          <div role="main" class="ui-content" id="map-canvas">
-              <input type="text" data-clear-btn="true" nome="estabelecimento" id="estabelecimento" placeholder="Nome desse campo ?" />
+
+            <select name="select-choice-a" id="select-choice-a" data-native-menu="false" tabindex="-1">
+              <option data-placeholder="true">Ballantines</option>
+              <option value="1">Item 2</option>
+              <option value="2">Item 3</option>
+              <option value="3">Item 4</option>
+              <option value="4">Item 5</option>
+            </select>
 
               <div class="ui-grid-a">
                 <div class="ui-block-a"  style="width: 90%; ">
                   <div class="ui-bar ui-bar-a" style="background-color: #f9f9f9; padding: 0;"> 
-                    <input type="text" data-clear-btn="true" nome="estabelecimento" id="estabelecimento" placeholder="Nome desse campo ?" />
+                    <select name="select-choice-a" id="select-choice-a" data-native-menu="false" tabindex="-1">
+                      <option data-placeholder="true">Jobim</option>
+                      <option value="1">Item 2</option>
+                      <option value="2">Item 3</option>
+                      <option value="3">Item 4</option>
+                      <option value="4">Item 5</option>
+                    </select>
                   </div>
                 </div>
 
@@ -176,13 +224,13 @@
               </div>
 
               <div class="ui-grid-a">
-                <div class="ui-block-a" style="width: 80%; ">
+                <div class="ui-block-a" style="width: 70%; ">
                   <div class="ui-bar ui-bar-a" style="background-color: #f9f9f9; padding: 0;"> 
                     <input type="text" data-clear-btn="false" nome="estabelecimento" id="estabelecimento" placeholder="Data de vencimento" />
                   </div>
                 </div>
 
-                <div class="ui-block-b" style="width: 20%;">
+                <div class="ui-block-b" style="width: 30%;">
                   <div class="ui-bar ui-bar-a" style="background-color: #f9f9f9;">
                     <select name="slider-flip-m" data-role="slider" data-mini="true"> 
                       <option>Não</option>
