@@ -24,11 +24,11 @@
     <script>
       function initialize(){
       var mapProp = {
-        center:new google.maps.LatLng(51.508742,-0.120850),
-        zoom:8,
+        center:new google.maps.LatLng(-5.794478499999999000,-35.210953099999980000), //Natal
+        zoom:11,
         mapTypeId:google.maps.MapTypeId.ROADMAP
         };
-        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
       }
 
       $( document ).on( "pagecreate", "#map-page", function() {
@@ -84,9 +84,9 @@
               </div>
               <div class="ui-block-b">
                 <div class="ui-bar ui-bar-a right" style="height:40px"> 
-                  <a href="#"><i class="fa fa-refresh fa-2x"></i></a> &nbsp;&nbsp;&nbsp;&nbsp; 
+                  <!-- <a href="#"><i class="fa fa-refresh fa-2x"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;  -->
                   <a href="#novoClube"><i class="fa fa-plus fa-2x"></i></a> &nbsp;&nbsp;&nbsp;&nbsp; 
-                  <a href="#"><i class="fa fa-ellipsis-v fa-2x"></i></a> &nbsp;&nbsp;&nbsp;&nbsp;
+                  <!-- <a href="#"><i class="fa fa-ellipsis-v fa-2x"></i></a> &nbsp;&nbsp;&nbsp;&nbsp; -->
                 </div>
               </div>
           </div>
@@ -125,12 +125,12 @@
       <div data-role="header" class="h_75">
           <br/>
           <div class="ui-grid-a">
-              <div class="ui-block-a h_75">
-                <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
-                  <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
-                  <h1>Linha do tempo</h1>
-                </div>
+            <div class="ui-block-a h_75">
+              <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
+                <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                <h1>Linha do tempo </h1>
               </div>
+            </div>
           </div>
           <br/>
         </div>
@@ -174,14 +174,16 @@
       </div>
     </div>
 
-    <div data-role="page" data-control-title="map-page" id="map-page">
+    <div data-role="page" data-control-title="map-page" id="novo-estabelecimento">
 
       <div data-role="header" >
         <br/>
         <div class="ui-grid-a h_75">
-          <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
-            <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
-            <h1>Novo Estabelecimento</h1>
+          <div class="ui-block-a h_75">
+            <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
+              <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+              <h1>Novo Estabelecimento </h1>
+            </div>
           </div>
           <br/>
         </div>
@@ -201,12 +203,12 @@
       <div data-role="header" class="h_75">
           <br/>
           <div class="ui-grid-a">
-              <div class="ui-block-a h_75">
-                <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
-                  <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
-                  <h1>Novo Clube</h1>
-                </div>
+            <div class="ui-block-a h_75">
+              <div class="ui-bar ui-bar-a home w_100" onclick="window.history.back();"> 
+                <i class="fa fa-users fa-2x"></i> &nbsp;&nbsp;&nbsp;&nbsp;
+                <h1>Novo Clube </h1>
               </div>
+            </div>
           </div>
           <br/>
         </div>
@@ -239,7 +241,7 @@
                 <div class="ui-block-b" style="width: 10%;">
                   <div class="ui-bar ui-bar-a" style="background-color: #f9f9f9;">
                     <p>
-                      <a href="#map-page"> <i class="fa fa-plus"></i></a>
+                      <a href="#novo-estabelecimento"> <i class="fa fa-plus"></i></a>
                     </p>
                   </div>
                 </div>
@@ -254,9 +256,9 @@
 
                 <div class="ui-block-b" style="width: 30%;">
                   <div class="ui-bar ui-bar-a" style="background-color: #f9f9f9;" >
-                    <select name="slider-flip-m" data-role="slider" data-mini="true" onchange="disabled2(this.value);"> 
-                      <option>Sim</option>
+                    <select name="slider-flip-m" data-role="slider" data-mini="true" value="2" onchange="disabled2(this.value);"> 
                       <option>Não</option>
+                      <option selected="selected">Sim</option>
                     </select>
                   </div>
                 </div>
