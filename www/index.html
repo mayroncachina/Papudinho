@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Papudinho</title>
+
+    <style>
+      .angular-google-map-container {
+          width: 100%;
+          height: 504px;
+      }
+    </style>
+
+    <link href="lib/ionic/css/myStyle.css" rel="stylesheet">
+
+    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+
+    <script>
+// Ionic Starter App
+
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+// 'starter.services' is found in services.js
+// 'starter.controllers' is found in controllers.js
+angular.module('app', ['ionic'])
+
+.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if(window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    }
+    if(window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleDefault();
+    }
+  });
+})
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+  // Ionic uses AngularUI Router which uses the concept of states
+  // Learn more here: https://github.com/angular-ui/ui-router
+  // Set up the various states which the app can be in.
+  // Each state's controller can be found in controllers.js
+  $stateProvider
+    
+    .state('page4', {
+      url: '/login',
+      templateUrl: 'login'
+    })
+    
+    .state('page5', {
+      url: '/signup',
+      templateUrl: 'signup'
+    })
+
+    .state('eventmenu', {
+      url: "/menu",
+      abstract: true,
+      templateUrl: "sideMenu"
+    })
+
+    .state('eventmenu.home', {
+      url: "/home",
+      views: {
+        'menuContent' :{
+          templateUrl: "home"
+        }
+      }
+    })
+
+    .state('eventmenu.clubes', {
+      url: "/clubes",
+      views: {
+        'menuContent' :{
+          templateUrl: "clubes"
+        }
+      }
+    })
+
+    .state('eventmenu.promocao', {
+      url: "/promocao",
+      views: {
+        'menuContent' :{
+          templateUrl: "promocao"
+        }
+      }
+    })
+
+    .state('eventmenu.amigos', {
+      url: "/amigos",
+      views: {
+        'menuContent' :{
+          templateUrl: "amigos"
+        }
+      }
+    })
+
+    .state('eventmenu.bares', {
+      url: "/bares",
+      views: {
+        'menuContent' :{
+          templateUrl: "bares"
+        }
+      }
+    })
+
+    ;
+
+  
+  $urlRouterProvider.otherwise('/login');
+});
+
+
+    </script>
+  </head>
+  <body ng-app="app">
+
+    <ion-nav-view></ion-nav-view>
+
+    <div>
+      <div>
+          <ion-nav-bar class="bar-positive">
+              <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">Voltar</ion-nav-back-button>
+          </ion-nav-bar>
+          <ion-nav-view></ion-nav-view>
+      </div>
+    </div>
+
+    
+
+    <script id="login" type="text/ng-template">
+      <ion-view title="Papudinho">
+          <ion-content padding="true" class="has-header">
+              <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; background-color: rgb(255, 255, 255);">
+                  <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+              </div>
+              <form>
+                  <ion-list>
+                      <label class="item item-input">
+                          <span class="input-label">Usuário</span>
+                          <input id="usuario" name="usuario" type="text" placeholder="">
+                      </label>
+                      <label class="item item-input">
+                          <span class="input-label">Senha</span>
+                          <input id="senha" name="senha" type="password" placeholder="">
+                      </label>
+                  </ion-list>
+                  <div class="spacer" style="height: 40px;"></div>
+                  <a href="#/menu/home" class="button button-stable button-block">Entrar</a>
+                  <a href="#/signup" class="button button-positive button-clear button-block">Criar Conta</a>
+              </form>
+          </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="signup" type="text/ng-template">
+    <ion-view title="Cadastro">
+        <ion-content padding="true" class="has-header">
+            <form>
+                <ion-list>
+                    <label class="item item-input">
+                        <span class="input-label">Usuario</span>
+                        <input type="text" placeholder="">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Email</span>
+                        <input type="text" placeholder="">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Senha</span>
+                        <input type="text" placeholder="">
+                    </label>
+                </ion-list>
+                <a href="#/login" class="button button-stable button-block">Cadastrar</a>
+            </form>
+        </ion-content>
+    </ion-view>
+    </script>
+
+    <script id="sideMenu" type="text/ng-template">
+      <ion-side-menus enable-menu-with-back-views="false">
+
+        <ion-side-menu-content>
+          <ion-nav-bar class="bar-positive">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+
+            <ion-nav-buttons side="left">
+              <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+              </button>
+            </ion-nav-buttons>
+          </ion-nav-bar>
+
+          <ion-nav-view name="menuContent"></ion-nav-view>
+        </ion-side-menu-content> 
+
+        <ion-side-menu side="left">
+          <ion-header-bar class="bar-positive">
+             <h1 class="title">Papudinho</h1>
+          </ion-header-bar>
+          <ion-content>
+            <ul class="list">
+              <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
+              <a href="#/menu/home" class="item" menu-close>Index</a>
+              <a href="#/menu/amigos" class="item" menu-close>Amigos</a>
+              <a href="#/menu/bares" class="item" menu-close>Bares</a>
+              <a href="#/menu/clubes" class="item" menu-close>Clubes</a>
+              <a href="#/menu/promocao" class="item" menu-close>Promoções</a>
+              <a href="#/login" class="item" menu-close>Sair</a>
+            </ul>
+          </ion-content>
+        </ion-side-menu>
+
+      </ion-side-menus>
+    </script>
+
+    <script id="home" type="text/ng-template">
+      <ion-view view-title="Papudinho">
+        <ion-content padding="true" class="has-header">
+          <h1>Sem conteúdo</h1>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="clubes" type="text/ng-template">
+      <ion-view title="Clubes">
+          <ion-content padding="true" class="has-header">
+            <div class="row">
+              <div class="col"><i class="icon ion-image" style="font-size: 70px; color: rgb(136, 136, 136); vertical-align: middle;"></i></div>
+              <div class="col">
+                <p><b>Jobim</b><br>
+                Ballantines<br>
+                19 Doses</p>
+              </div>
+              <div class="col">
+                <p><i class="icon ion-location" style="font-size: 20px"></i> 20km <br> 
+                Venc: 12/05/2015</p>
+              </div>
+            </div>
+          </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="promocao" type="text/ng-template">
+      <ion-view title="Promoções">
+          <ion-content padding="true" class="has-header">
+            <div class="list">
+                <a class="item item-avatar" href="#">
+                  <img src="img.jpg">
+                  <h2>Nome do Bar</h2>
+                  <p>Bebida x com 15% de desconto até 31/01/2015</p>
+                </a>
+                <a class="item item-avatar" href="#">
+                  <img src="img.jpg">
+                  <h2>Nome do Bar 2</h2>
+                  <p>Bebida x com 25% de desconto até 31/01/2015</p>
+                </a>
+                <a class="item item-avatar" href="#">
+                  <img src="img.jpg">
+                  <h2>Nome do Bar 3</h2>
+                  <p>Bebida x com 35% de desconto até 31/01/2015</p>
+                </a>
+                <a class="item item-avatar" href="#">
+                  <img src="img.jpg">
+                  <h2>Nome do Bar 4</h2>
+                  <p>Bebida x com 45% de desconto até 31/01/2015</p>
+                </a>
+            </div>
+          </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="amigos" type="text/ng-template">
+      <ion-view view-title="Amigos">
+        <ion-content padding="true" class="has-header">
+          <div class="list">
+            <a class="item item-icon-left item-icon-right" href="#">
+              <i class="icon ion-person-stalker"></i>
+                ‎Gabriela Cavalcante
+              <i class="icon ion-ios7-telephone"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" href="#">
+              <i class="icon ion-person-stalker"></i>
+                Luan Fonseca 
+              <i class="icon ion-ios7-telephone"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" href="#">
+              <i class="icon ion-person-stalker"></i>
+                Mayron Cachina 
+              <i class="icon ion-ios7-telephone"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" href="#">
+              <i class="icon ion-person-stalker"></i>
+                Raí Vitor
+              <i class="icon ion-ios7-telephone"></i>
+            </a>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="bares" type="text/ng-template">
+      <ion-view view-title="Bares">
+        <ion-content padding="true" class="has-header">
+          <div class="list">
+            <a class="item item-thumbnail-left" href="#">
+              <img  src="#" >
+              <h2>Bar do seu Zé</h2>
+              <p>Rua Serra do Mel, 8008 - (84) 9999-9999</p>
+            </a>
+            <a class="item item-thumbnail-left" href="#">
+              <img  src="#" >
+              <h2>Bar do seu João</h2>
+              <p>Rua pássaro de fogo, 8858 - (84) 8888-8888</p>
+            </a>
+            <a class="item item-thumbnail-left" href="#">
+              <img  src="#" >
+              <h2>Bar do Didi</h2>
+              <p>Avenida Ruy Barbosa, 4008 - (84) 7777-7777</p>
+            </a>
+          </div>
+        </ion-content>
+      </ion-view>
+    </script>
+  
+  </body>
+</html>
