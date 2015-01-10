@@ -5,17 +5,10 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Papudinho</title>
 
-    <style>
-      .angular-google-map-container {
-          width: 100%;
-          height: 504px;
-      }
-    </style>
-
     <link href="lib/ionic/css/myStyle.css" rel="stylesheet">
-
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>    
@@ -30,7 +23,7 @@
       <div>
           <ion-nav-bar class="bar-positive">
               <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">Voltar</ion-nav-back-button>
-          </ion-nav-bar>
+          </ion-nav-bar>       
           <ion-nav-view></ion-nav-view>
       </div>
     </div>
@@ -39,6 +32,7 @@
 
     <script id="login" type="text/ng-template">
       <ion-view title="Papudinho">
+        
           <ion-content padding="true" class="has-header">
               <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; background-color: rgb(255, 255, 255);">
                   <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
@@ -91,13 +85,12 @@
 
         <ion-side-menu-content>
           <ion-nav-bar class="bar-positive">
-            <ion-nav-back-button>
-            </ion-nav-back-button>
 
+            <ion-nav-back-button></ion-nav-back-button>
             <ion-nav-buttons side="left">
-              <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-              </button>
+              <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
             </ion-nav-buttons>
+            
           </ion-nav-bar>
 
           <ion-nav-view name="menuContent"></ion-nav-view>
@@ -109,7 +102,6 @@
           </ion-header-bar>
           <ion-content>
             <ul class="list">
-              <!-- Note each link has the 'menu-close' attribute so the menu auto closes when clicking on one of these links -->
               <a href="#/menu/home" class="item" menu-close>Index</a>
               <a href="#/menu/amigos" class="item" menu-close>Amigos</a>
               <a href="#/menu/bares" class="item" menu-close>Bares</a>
@@ -128,54 +120,6 @@
         <ion-content padding="true" class="has-header">
           <h1>Sem conteúdo</h1>
         </ion-content>
-      </ion-view>
-    </script>
-
-    <script id="clubes" type="text/ng-template">
-      <ion-view title="Clubes">
-          <ion-content padding="true" class="has-header">
-            <div class="row">
-              <div class="col"><i class="icon ion-image" style="font-size: 70px; color: rgb(136, 136, 136); vertical-align: middle;"></i></div>
-              <div class="col">
-                <p><b>Jobim</b><br>
-                Ballantines<br>
-                19 Doses</p>
-              </div>
-              <div class="col">
-                <p><i class="icon ion-location" style="font-size: 20px"></i> 20km <br> 
-                Venc: 12/05/2015</p>
-              </div>
-            </div>
-          </ion-content>
-      </ion-view>
-    </script>
-
-    <script id="promocao" type="text/ng-template">
-      <ion-view title="Promoções">
-          <ion-content padding="true" class="has-header">
-            <div class="list">
-                <a class="item item-avatar" href="#">
-                  <img src="img.jpg">
-                  <h2>Nome do Bar</h2>
-                  <p>Bebida x com 15% de desconto até 31/01/2015</p>
-                </a>
-                <a class="item item-avatar" href="#">
-                  <img src="img.jpg">
-                  <h2>Nome do Bar 2</h2>
-                  <p>Bebida x com 25% de desconto até 31/01/2015</p>
-                </a>
-                <a class="item item-avatar" href="#">
-                  <img src="img.jpg">
-                  <h2>Nome do Bar 3</h2>
-                  <p>Bebida x com 35% de desconto até 31/01/2015</p>
-                </a>
-                <a class="item item-avatar" href="#">
-                  <img src="img.jpg">
-                  <h2>Nome do Bar 4</h2>
-                  <p>Bebida x com 45% de desconto até 31/01/2015</p>
-                </a>
-            </div>
-          </ion-content>
       </ion-view>
     </script>
 
@@ -208,29 +152,215 @@
       </ion-view>
     </script>
 
+
     <script id="bares" type="text/ng-template">
       <ion-view view-title="Bares">
         <ion-content padding="true" class="has-header">
           <div class="list">
             <a class="item item-thumbnail-left" href="#">
               <img  src="#" >
-              <h2>Bar do seu Zé</h2>
-              <p>Rua Serra do Mel, 8008 - (84) 9999-9999</p>
+              <h2>Jobim</h2>
+              <p>Rua Serra do Mel, 8008<br>
+              (84) 9999-9999</p>
             </a>
             <a class="item item-thumbnail-left" href="#">
               <img  src="#" >
-              <h2>Bar do seu João</h2>
-              <p>Rua pássaro de fogo, 8858 - (84) 8888-8888</p>
+              <h2>Casa do Whisky</h2>
+              <p>Rua pássaro de fogo, 8858<br>
+              (84) 8888-8888</p>
             </a>
             <a class="item item-thumbnail-left" href="#">
               <img  src="#" >
-              <h2>Bar do Didi</h2>
-              <p>Avenida Ruy Barbosa, 4008 - (84) 7777-7777</p>
+              <h2>Whiskritorio</h2>
+              <p>Avenida Ruy Barbosa, 4008<br>
+              (84) 7777-7777</p>
             </a>
           </div>
         </ion-content>
       </ion-view>
     </script>
-  
+
+
+    <script id="clubes" type="text/ng-template">
+      <ion-view title="Clubes">
+
+          <ion-nav-bar class="bar-positive">
+            <ion-nav-buttons side="left">
+              <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+            </ion-nav-buttons>
+            <ion-nav-buttons side="right">
+              <a href="#/addClube" class="button button-icon icon ion-plus"></a>
+            </ion-nav-buttons>
+          </ion-nav-bar>
+
+          <ion-content padding="true" class="has-header">
+            <div class="row">
+              <div class="col"><i class="icon ion-image" style="font-size: 70px; color: rgb(136, 136, 136); vertical-align: middle;"></i></div>
+              <div class="col">
+                <p><b>Jobim</b><br>
+                Ballantines<br>
+                19 Doses</p>
+              </div>
+              <div class="col">
+                <p><i class="icon ion-location" style="font-size: 20px"></i> 20km <br> 
+                Venc: 12/05/2015</p>
+              </div>
+            </div>
+          </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="promocao" type="text/ng-template">
+      <ion-view title="Promoções">
+          <ion-content padding="true" class="has-header">
+            <div class="list">
+                <a class="item item-avatar" href="#">
+                  <img src="img.jpg">
+                  <h2>Nome do Bar</h2>
+                  <p>Whisky x com 15% de desconto<br>
+                   Válido até 31/01/2015</p>
+                </a>
+                <a class="item item-avatar" href="#">
+                  <img src="img.jpg">
+                  <h2>Nome do Bar 2</h2>
+                  <p>Whisky x com 25% de desconto<br>
+                   Válido até 31/01/2015</p>
+                </a>
+                <a class="item item-avatar" href="#">
+                  <img src="img.jpg">
+                  <h2>Nome do Bar 3</h2>
+                  <p>Whisky x com 35% de desconto<br>
+                   Válido até 31/01/2015</p>
+                </a>
+                <a class="item item-avatar" href="#">
+                  <img src="img.jpg">
+                  <h2>Nome do Bar 4</h2>
+                  <p>Whisky x com 45% de desconto<br>
+                   Válido até 31/01/2015</p>
+                </a>
+            </div>
+          </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="addClube" type="text/ng-template">
+      <ion-view view-title="Novo Clube">
+        <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+          <a href="#/menu/clubes" class="button-icon icon ion-ios7-arrow-back cancelar" style="color: White;"> Voltar</a>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+        <ion-content padding="true" class="has-header">
+          <div class="row">
+            <div class="col">
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Bebida
+                </div>
+                <select>
+                  <option selected> -- Escolha -- </option>
+                  <option>Ballantines</option>
+                  <option >Black And White</option>
+                  <option>Burrberrys</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-90"> 
+              <label class="item item-input item-select">
+                <div class="input-label">
+                  Bar
+                </div>
+                <select>
+                  <option selected> -- Escolha -- </option>
+                  <option>Jobim</option>
+                  <option>Casa do Whisky</option>
+                  <option>Whiskritorio</option>
+                </select>
+              </label>
+            </div>
+            <div class="col col-center" align="center"> 
+              <a href="#/addBar"><i class="icon ion-plus" style="font-size: 20px; color: #387ef5"></i></a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col col-80">
+              <label class="item item-input">
+                <span class="input-label">Data de Vencimento</span>
+                <input type="date">
+              </label>
+            </div>
+
+            <div class="col col-center" align="center">
+                <label class="toggle toggle-positive">
+                  <input type="checkbox">
+                  <div class="track">
+                    <div class="handle"></div>
+                  </div>
+                </label>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col col-80">
+              <div class="item range range-positive">
+                <input type="range" name="volume" min="0" max="20" value="1" ng-model="data.volume">
+              </div>
+            </div>
+            <div class="col col-center" align="center">
+              <p>Doses : {{data.volume}}</p>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col" align="center"><i class="icon ion-image" style="font-size: 70px; color: rgb(136, 136, 136);"></i></div>
+            <div class="col" align="center"><i class="icon ion-image" style="font-size: 70px; color: rgb(136, 136, 136);"></i></div>
+          </div>
+
+          <button class="button button-block button-balanced">
+            Cadastrar
+          </button>
+
+        </ion-content>
+      </ion-view>
+    </script>
+
+
+    <script id="addBar" type="text/ng-template" ng-controller="MapCtrl">
+      
+      <ion-view view-title="Novo Bar">
+        <ion-nav-bar class="bar-positive">
+        <ion-nav-buttons side="left">
+          <a href="#/addClube" class="button-icon icon ion-ios7-arrow-back cancelar" style="color: White;"> Voltar</a>
+      </ion-nav-buttons>
+
+      </ion-nav-bar>
+        <ion-content padding="true" class="has-header">
+          <div class="row">
+            <div class="col">
+              <label class="item item-input">
+                <input type="text" placeholder="Nome do Bar">
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label class="item item-input">
+                <input type="text" placeholder="Telefone">
+              </label>
+            </div>
+          </div>
+          Falta o mapa
+          <div id="map" data-tap-disabled="true"></div>
+        </ion-content>
+        <ion-footer-bar class="bar-balanced">
+          <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Pegar Localização</a>
+        </ion-footer-bar>
+      </ion-view>
+    </script>
+
   </body>
 </html>
