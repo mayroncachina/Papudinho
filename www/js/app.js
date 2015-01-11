@@ -49,11 +49,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-    .state('eventmenu.clubes', {
-      url: "/clubes",
+    .state('eventmenu.cartoes', {
+      url: "/cartoes",
       views: {
         'menuContent' :{
-          templateUrl: "clubes"
+          templateUrl: "cartoes"
         }
       }
     })
@@ -85,9 +85,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     })
 
-    .state('addClube', {
-      url: '/addClube',
-      templateUrl: 'addClube'
+    .state('addCartao', {
+      url: '/addCartao',
+      templateUrl: 'addCartao'
     })
 
     .state('addBar', {
@@ -112,7 +112,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 
 app.controller('MapCtrl', function($scope, $ionicLoading, $compile) {
-  
+
       function initialize() {
         var myLatlng = new google.maps.LatLng(-5.794478499999999000,-35.210953099999980000);
         

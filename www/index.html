@@ -102,7 +102,7 @@
               <a href="#/menu/home" class="item" menu-close>Home</a>
               <a href="#/menu/amigos" class="item" menu-close>Amigos</a>
               <a href="#/menu/bares" class="item" menu-close>Bares</a>
-              <a href="#/menu/clubes" class="item" menu-close>Clubes</a>
+              <a href="#/menu/cartoes" class="item" menu-close>Cartões</a>
               <a href="#/menu/promocao" class="item" menu-close>Promoções</a>
               <a href="#/login" class="item" menu-close>Sair</a>
             </ul>
@@ -227,15 +227,15 @@
     </script>
 
 
-    <script id="clubes" type="text/ng-template">
-      <ion-view title="Clubes">
+    <script id="cartoes" type="text/ng-template">
+      <ion-view title="Cartões">
 
           <ion-nav-bar class="bar-positive">
             <ion-nav-buttons side="left">
               <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
             </ion-nav-buttons>
             <ion-nav-buttons side="right">
-              <a href="#/addClube" class="button button-icon icon ion-plus"></a>
+              <a href="#/addCartao" class="button button-icon icon ion-plus"></a>
             </ion-nav-buttons>
           </ion-nav-bar>
 
@@ -323,14 +323,19 @@
       </ion-view>
     </script>
 
-    <script id="addClube" type="text/ng-template">
-      <ion-view view-title="Novo Clube">
+    <script id="addCartao" type="text/ng-template">
+      <ion-view view-title="Novo Cartão">
 
         <ion-nav-bar class="bar-positive">
           <ion-nav-buttons side="left">
             <button class="button back-button buttons button-clear header-item" ng-click="$ionicGoBack($event)">
             <i class="ion-ios7-arrow-back"></i> Voltar
           </button>
+          </ion-nav-buttons>
+          <ion-nav-buttons side="right">
+            <button class="button back-button buttons button-clear header-item" ng-click="$ionicGoBack($event)">
+              Salvar <i class="ion-checkmark-round"></i> 
+            </button>
           </ion-nav-buttons>
         </ion-nav-bar>
 
@@ -403,10 +408,6 @@
             <div class="col" align="center"><i class="icon ion-image" style="font-size: 70px; color: rgb(136, 136, 136);"></i></div>
             <div class="col" align="center"><i class="icon ion-image" style="font-size: 70px; color: rgb(136, 136, 136);"></i></div>
           </div>
-
-          <button class="button button-block button-balanced">
-            Cadastrar
-          </button>
 
         </ion-content>
       </ion-view>
