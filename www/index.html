@@ -8,7 +8,7 @@
     <link href="lib/ionic/css/myStyle.css" rel="stylesheet">
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+    <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>    
@@ -19,20 +19,9 @@
 
     <ion-nav-view></ion-nav-view>
 
-    <div>
-      <div>
-          <ion-nav-bar class="bar-positive">
-              <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">Voltar</ion-nav-back-button>
-          </ion-nav-bar>       
-          <ion-nav-view></ion-nav-view>
-      </div>
-    </div>
-
-    
-
     <script id="login" type="text/ng-template">
       <ion-view title="Papudinho">
-        
+          <ion-nav-bar class="bar-positive"></ion-nav-bar> 
           <ion-content padding="true" class="has-header">
               <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; background-color: rgb(255, 255, 255);">
                   <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
@@ -58,6 +47,15 @@
 
     <script id="signup" type="text/ng-template">
     <ion-view title="Cadastro">
+
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-buttons side="left">
+            <button class="button back-button buttons button-clear header-item" ng-click="$ionicGoBack($event)">
+            <i class="ion-ios7-arrow-back"></i> Voltar
+          </button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+
         <ion-content padding="true" class="has-header">
             <form>
                 <ion-list>
@@ -67,16 +65,17 @@
                     </label>
                     <label class="item item-input">
                         <span class="input-label">Email</span>
-                        <input type="text" placeholder="">
+                        <input type="email" placeholder="">
                     </label>
                     <label class="item item-input">
                         <span class="input-label">Senha</span>
-                        <input type="text" placeholder="">
+                        <input type="password" placeholder="">
                     </label>
                 </ion-list>
                 <a href="#/login" class="button button-stable button-block">Cadastrar</a>
             </form>
         </ion-content>
+
     </ion-view>
     </script>
 
@@ -85,12 +84,10 @@
 
         <ion-side-menu-content>
           <ion-nav-bar class="bar-positive">
-
             <ion-nav-back-button></ion-nav-back-button>
             <ion-nav-buttons side="left">
               <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
             </ion-nav-buttons>
-            
           </ion-nav-bar>
 
           <ion-nav-view name="menuContent"></ion-nav-view>
@@ -125,6 +122,16 @@
 
     <script id="amigos" type="text/ng-template">
       <ion-view view-title="Amigos">
+
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+          </ion-nav-buttons>
+          <ion-nav-buttons side="right">
+            <a href="#/addAmigo" class="button button-icon icon ion-person-add"></a>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+
         <ion-content padding="true" class="has-header">
           <div class="list">
             <a class="item item-icon-left item-icon-right" href="#">
@@ -155,6 +162,16 @@
 
     <script id="bares" type="text/ng-template">
       <ion-view view-title="Bares">
+
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
+          </ion-nav-buttons>
+          <ion-nav-buttons side="right">
+            <a href="#/addBar" class="button button-icon icon ion-plus"></a>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+
         <ion-content padding="true" class="has-header">
           <div class="list">
             <a class="item item-thumbnail-left" href="#">
@@ -194,17 +211,51 @@
           </ion-nav-bar>
 
           <ion-content padding="true" class="has-header">
-            <div class="row">
-              <div class="col"><i class="icon ion-image" style="font-size: 70px; color: rgb(136, 136, 136); vertical-align: middle;"></i></div>
-              <div class="col">
-                <p><b>Jobim</b><br>
-                Ballantines<br>
-                19 Doses</p>
-              </div>
-              <div class="col">
-                <p><i class="icon ion-location" style="font-size: 20px"></i> 20km <br> 
-                Venc: 12/05/2015</p>
-              </div>
+            <div class="list">
+                <a class="item item-thumbnail-left" href="#/timeline">
+                  <img src="cover.jpg">
+                  <div class="row">
+                    <div class="col">
+                      <p><b>Jobim</b><br>
+                      Ballantines<br>
+                      17 Doses restantes</p>
+                    </div>
+                    <div class="col">
+                      <p><i class="icon ion-location" style="font-size: 20px"></i> 20km <br> 
+                      Venc: 12/05/2015</p>
+                    </div>
+                  </div>
+                </a>
+
+                <a class="item item-thumbnail-left" href="#/timeline">
+                  <img src="cover.jpg">
+                  <div class="row">
+                    <div class="col">
+                      <p><b>Casa do Whisky</b><br>
+                      Black And White<br>
+                      01 Dose restante</p>
+                    </div>
+                    <div class="col">
+                      <p><i class="icon ion-location" style="font-size: 20px"></i> 10km <br> 
+                      Venc: 10/03/2015</p>
+                    </div>
+                  </div>
+                </a>
+
+                <a class="item item-thumbnail-left" href="#/timeline">
+                  <img src="cover.jpg">
+                  <div class="row">
+                    <div class="col">
+                      <p><b>Whiskritorio</b><br>
+                      Burrberrys<br>
+                      19 Doses restantes</p>
+                    </div>
+                    <div class="col">
+                      <p><i class="icon ion-location" style="font-size: 20px"></i> 30km <br> 
+                      Venc: 01/06/2015</p>
+                    </div>
+                  </div>
+                </a>
             </div>
           </ion-content>
       </ion-view>
@@ -245,11 +296,15 @@
 
     <script id="addClube" type="text/ng-template">
       <ion-view view-title="Novo Clube">
+
         <ion-nav-bar class="bar-positive">
-        <ion-nav-buttons side="left">
-          <a href="#/menu/clubes" class="button-icon icon ion-ios7-arrow-back cancelar" style="color: White;"> Voltar</a>
-        </ion-nav-buttons>
-      </ion-nav-bar>
+          <ion-nav-buttons side="left">
+            <button class="button back-button buttons button-clear header-item" ng-click="$ionicGoBack($event)">
+            <i class="ion-ios7-arrow-back"></i> Voltar
+          </button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+
         <ion-content padding="true" class="has-header">
           <div class="row">
             <div class="col">
@@ -332,12 +387,20 @@
     <script id="addBar" type="text/ng-template" ng-controller="MapCtrl">
       
       <ion-view view-title="Novo Bar">
-        <ion-nav-bar class="bar-positive">
-        <ion-nav-buttons side="left">
-          <a href="#/addClube" class="button-icon icon ion-ios7-arrow-back cancelar" style="color: White;"> Voltar</a>
-      </ion-nav-buttons>
 
-      </ion-nav-bar>
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-buttons side="left">
+            <button class="button back-button buttons button-clear header-item" ng-click="$ionicGoBack($event)">
+            <i class="ion-ios7-arrow-back"></i> Voltar
+          </button>
+          </ion-nav-buttons>
+          <ion-nav-buttons side="right">
+            <button class="button back-button buttons button-clear header-item" ng-click="$ionicGoBack($event)">
+              Salvar <i class="ion-checkmark-round"></i> 
+            </button>
+          </ion-nav-buttons>
+        </ion-nav-bar> 
+
         <ion-content padding="true" class="has-header">
           <div class="row">
             <div class="col">
@@ -353,12 +416,108 @@
               </label>
             </div>
           </div>
-          Falta o mapa
           <div id="map" data-tap-disabled="true"></div>
         </ion-content>
         <ion-footer-bar class="bar-balanced">
           <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Pegar Localização</a>
         </ion-footer-bar>
+      </ion-view>
+    </script>
+
+    <script id="addAmigo" type="text/ng-template">
+      <ion-view view-title="Adicionar Amigo">
+
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-buttons side="left">
+            <button class="button back-button buttons button-clear header-item" ng-click="$ionicGoBack($event)">
+              <i class="ion-ios7-arrow-back"></i> Voltar
+            </button>
+          </ion-nav-buttons>
+          <ion-nav-buttons side="right">
+            <button class="button back-button buttons button-clear header-item" ng-click="$ionicGoBack($event)">
+              Salvar <i class="ion-checkmark-round"></i> 
+            </button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-content padding="true" class="has-header">
+          <form>
+            <ion-list>
+                <label class="item item-input">
+                    <span class="input-label">Nome</span>
+                    <input type="text" placeholder="">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Telefone</span>
+                    <input type="text" placeholder="">
+                </label>
+            </ion-list>
+          </form>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="timeline" type="text/ng-template">
+      <ion-view view-title="Timeline">
+
+        <ion-nav-bar class="bar-positive">
+          <ion-nav-buttons side="left">
+            <button class="button back-button buttons button-clear header-item" ng-click="$ionicGoBack($event)">
+            <i class="ion-ios7-arrow-back"></i> Voltar
+          </button>
+          </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <ion-content padding="true" class="has-header">
+          <div class="card">
+            <div class="item item-text-wrap">
+              <p>
+                Bebida: Ballantines<br>
+                Bar: Jobim <br>
+                Compra: 31/11/2014<br>
+                Vencimento: 31/01/2015<br>
+                Doses restantes: 17/20<br>
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="item item-text-wrap">
+              <p>
+                Data de atualização: 31/12/2014 - 23h25<br>
+                Doses restantes: 17 <br>
+                <p align="center">
+                  <i class="icon ion-image" style="font-size: 80px; color: rgb(136, 136, 136);"></i>
+                </p>
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="item item-text-wrap">
+              <p>
+                Data de atualização: 29/12/2014 - 23h50<br>
+                Doses restantes: 18 <br>
+                <p align="center">
+                  <i class="icon ion-image" style="font-size: 80px; color: rgb(136, 136, 136);"></i>
+                </p>
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="item item-text-wrap">
+              <p>
+                Data de atualização: 30/12/2014 - 22h25<br>
+                Doses restantes: 19 <br>
+                <p align="center">
+                  <i class="icon ion-image" style="font-size: 80px; color: rgb(136, 136, 136);"></i>
+                </p>
+              </p>
+            </div>
+          </div>
+        </ion-content>
+
       </ion-view>
     </script>
 
